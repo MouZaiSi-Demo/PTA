@@ -1,20 +1,20 @@
 /*
-7 - 5 n¸öÊýµÄ×î´ó¹«Ô¼Êý(5·Ö)
-µÚÒ»ÐÐÊäÈëÒ»¸öÕûÊýn(n >= 2)£¬µÚ¶þÐÐÊäÈën¸öÕûÊý£¬ÇóÕâ£î¸öÊýµÄ×î´ó¹«Ô¼Êý¡£
+7 - 5 nä¸ªæ•°çš„æœ€å¤§å…¬çº¦æ•°(5åˆ†)
+ç¬¬ä¸€è¡Œè¾“å…¥ä¸€ä¸ªæ•´æ•°n(n >= 2)ï¼Œç¬¬äºŒè¡Œè¾“å…¥nä¸ªæ•´æ•°ï¼Œæ±‚è¿™ï½Žä¸ªæ•°çš„æœ€å¤§å…¬çº¦æ•°ã€‚
 
-ÊäÈë¸ñÊ½ :
-µÚÒ»ÐÐÊäÈëÒ»¸öÕûÊýn£¬µÚ¶þÐÐÊäÈën¸öÕûÊý¡£
+è¾“å…¥æ ¼å¼ :
+ç¬¬ä¸€è¡Œè¾“å…¥ä¸€ä¸ªæ•´æ•°nï¼Œç¬¬äºŒè¡Œè¾“å…¥nä¸ªæ•´æ•°ã€‚
 
-Êä³ö¸ñÊ½ :
-Êä³öÒ»¸öÊý¡£
+è¾“å‡ºæ ¼å¼ :
+è¾“å‡ºä¸€ä¸ªæ•°ã€‚
 
-ÊäÈëÑùÀý :
-ÔÚÕâÀï¸ø³öÒ»×éÊäÈë¡£ÀýÈç£º
+è¾“å…¥æ ·ä¾‹ :
+åœ¨è¿™é‡Œç»™å‡ºä¸€ç»„è¾“å…¥ã€‚ä¾‹å¦‚ï¼š
 
 4
 12 42 18 24
-Êä³öÑùÀý :
-	ÔÚÕâÀï¸ø³öÏàÓ¦µÄÊä³ö¡£ÀýÈç£º
+è¾“å‡ºæ ·ä¾‹ :
+	åœ¨è¿™é‡Œç»™å‡ºç›¸åº”çš„è¾“å‡ºã€‚ä¾‹å¦‚ï¼š
 
 	6
 */
@@ -56,11 +56,41 @@ int common_divisor(int M, int N)
 
     while (n != 0)
     {
-        t = m % n;//ÈôÖ±½Ó°Ñn¸øÁËm»á¸Ä±äm%nµÄÖµ ËùÒÔÐèÒª¸öÖÐ¼ä±äÁ¿ÔÝÊ±´æ´¢m%nµÄÖµ
+        t = m % n;//è‹¥ç›´æŽ¥æŠŠnç»™äº†mä¼šæ”¹å˜m%nçš„å€¼ æ‰€ä»¥éœ€è¦ä¸ªä¸­é—´å˜é‡æš‚æ—¶å­˜å‚¨m%nçš„å€¼
         m = n;
         n = t;
     }
 
     return m;
+}
+
+/*******************************************************/
+//ä»¥ä¸‹æ˜¯æ›´å¥½çš„ç‰ˆæœ¬
+
+#include<stdio.h>
+
+int gcd(int a,int b)
+{
+   return b?gcd(b,a%b):a;
+}
+
+int main(void)
+{
+    int n;
+    scanf("%d",&n);
+    
+    int a,b,result;
+    
+    scanf("%d%d",&a,&b);
+    result=gcd(a,b);
+    for(int i = 2;i < n;i++)
+    {
+        scanf("%d",&b);
+        result=gcd(result,b);
+    }
+    
+    printf("%d",result);
+    
+    return 0;
 }
 
