@@ -32,7 +32,7 @@ void contrary()
     cnt--;
     if(cnt>1)
     printf("%d ",x);
-    else if(cnt==1)
+    else
     printf("%d",x);
     
 }
