@@ -22,13 +22,13 @@
 
 #include<stdio.h>
 int cnt=0;
-void ni()
+void contrary()
 {
     int x;
     scanf("%d",&x);
     cnt++;
     if(!x)return;
-    ni();//作为分界点 call函数进栈的时候 就会一直执行该函数的上面的代码  "归"的时候就会一直执行下面的代码(除了最后的基线条件以下的 因为直接就return了)
+    contrary();//作为分界点 call函数进栈的时候 就会一直执行该函数的上面的代码  "归"的时候就会一直执行下面的代码(除了最后的基线条件以下的 因为直接就return了)
     cnt--;
     if(cnt>1)
     printf("%d ",x);
@@ -39,6 +39,6 @@ void ni()
 
 int main(void)
 { 
-    ni();
+    contrary();
     return 0;
 }
